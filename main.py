@@ -10,11 +10,11 @@ BlockSize = 8
 
 string = input("msg : ")
 
-str = "Hello bro, I am Ritam Chatterjee. I study in University Of Engineering and Management, Kolkata."
+str = "This is a Secret messafe, I Will Encrypt this inside an Image."
 
 BinaryStr =  GeneralMethods.StringTOBinary(string)
 
-img = cv2.imread("lena.png",0)
+img = cv2.imread("lena.png",0)  # Add a PNG Image to directory to embed into.
 
 newImage = Partition.CreateBlocks(img,BlockSize,BinaryStr)
 
