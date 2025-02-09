@@ -8,9 +8,7 @@ import PSNR
 
 BlockSize = 8
 
-string = input("msg : ")
-
-str = "This is a Secret messafe, I Will Encrypt this inside an Image."
+string = input("Enter a Secret Message : ")
 
 BinaryStr =  GeneralMethods.StringTOBinary(string)
 
