@@ -95,31 +95,4 @@ def CreateBlocks(Image,PartisionCount,Message):
 
     return newImage
 
-def ExtractBlocks(Image,PartisionCount):
-
-        rowCount, colCount = GeneralMethods.GetSize(Image)
-
-        sequence = getSequence(rowCount, colCount, PartisionCount)
-        block = numpy.zeros((PartisionCount, PartisionCount), dtype=int)
-        Message = ""
-
-        x, y = 0, 0
-        for i in range(0, colCount):
-            for j in range(0, rowCount):
-                block[x][y] = Image[i][j]
-                if y == PartisionCount - 1:
-                    y = -1
-                    x += 1
-                if y == -1 and x == PartisionCount:
-                    # print(block)
-                    block = ShuffleBlock(block, sequence, PartisionCount)
-                    message = QuotentEmbedding.extractQuotentMatrix(block)
-                    Message = Message + message
-                    message = RemainderEmbedding.RemainderExtraction(block)
-                    Message = Message + message
-                    block = numpy.zeros((PartisionCount, PartisionCount), dtype=int)
-                    x, y = 0, -1
-                y += 1
-
-        return GeneralMethods.getRemMessage(Message)
 
